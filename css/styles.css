@@ -1,0 +1,131 @@
+body {
+    background-color: #777;
+    font-family: verdana;
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    padding: 5px;
+    border-bottom: 2px dotted #fff;
+    font-size: 50px;
+}
+
+#wrapper {
+    margin: auto;
+    padding: 30px;
+    margin-top: 60px;
+}
+
+#message {
+    text-align: center;
+    padding: 15px;
+}
+
+#board {
+    width: 450px;
+    margin: auto;
+    transition: height 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.row {
+    height: 150px;
+    margin: 0px;
+    padding: 0px;
+    transition: height 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.column {
+    text-align: center;
+    vertical-align: text-top;
+    display: inline-block;
+    margin: 2px;
+    width: 145px;
+    height: 145px;
+    background-color:aquamarine;
+    transition: height 0.5s;
+    transition-timing-function: ease-in-out;
+    
+}
+
+.column:hover {
+    opacity: 0.5;
+}
+
+#buttons {
+    margin:auto;
+    width: 450px;
+}
+
+button {
+    margin: 20px auto;
+    width: 200px;
+    padding: 10px;
+    font-size: 15px;
+    margin: 20px 10px 10px;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
+
+button:hover {
+    color: #555;
+}
+
+.occupiedBy_O {
+    color: darkred;
+    font-weight: bold;
+    font-size: 110px;
+}
+
+.occupiedBy_X {
+    color: darkblue;
+    font-weight: bold;
+    font-size: 110px;
+}
+
+#O {
+    color: darkred;
+    font-weight: bold;
+    margin-left: 60px;
+}
+
+#X {
+    color: darkblue;
+    font-weight: bold;
+    margin-left: 60px;
+}
+
+#draw {
+    color: darkgreen;
+    font-weight: bold;
+    margin-left: 60px;
+}
+
+.invisible {
+    visibility: hidden;
+    height: 0px;
+}
+
+.visible {
+    height: 450px;
+}
+
+#stats {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 20px;
+    background-color: #ccc;
+    text-align: center;
+}
+
+.stat {
+    margin-left: 20px;
+    margin-right: 80px;
+}
