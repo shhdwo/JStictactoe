@@ -91,119 +91,20 @@ var endConditionCheckerModule = (function(player, square) {
     
     
     return {
-        checkEndConditions: function(player, square) {
+        checkResult: function(player, square) {
             if(checkForWin(player, square)) {
-                setMessage("Player " + player + " wins!");
+                gameModule.setMessage("Player " + player + " wins!");
                 document.finished = true;
                 updateWin(player);
+                return player;
             }
             else if(checkForDraw()) {
-                setMessage("Nobody wins.");
+                gameModule.setMessage("Nobody wins.");
                 document.finished = true;
                 updateDraws();
+                return "draw";
             }
+            return "not finished";
         }
     }
 })();
-
-//function checkEndConditions(player, square) {
-//    if(checkForWin(player, square)) {
-//        setMessage("Player " + player + " wins!");
-//        document.finished = true;
-//        updateWin(player);
-//    }
-//    else if(checkForDraw()) {
-//        setMessage("Nobody wins.");
-//        document.finished = true;
-//        updateDraws();
-//    }
-//}
-//
-//function checkForDraw() {
-//    for(var i = 1; i<=document.numberOfRows; i++) {
-//        for(var j = 1; j<=document.numberOfRows; j++) {
-//            square = document.getElementById("r" + i + "_c" + j);
-//            if (square.className == "column") {
-//                return false;
-//            }
-//        }
-//    }
-//    return true;
-//}
-//
-//function checkForWin(player, lastMove) {
-//    var squareOccupiedByPlayer = "column occupiedBy_" + player;
-//    if(checkRowCondition(squareOccupiedByPlayer, lastMove)) {
-//        return true;
-//    }
-//    else if(checkColumnCondition(squareOccupiedByPlayer, lastMove)) {
-//        return true;
-//    }
-//    else if(checkDiagonalCondition(squareOccupiedByPlayer, lastMove)) {
-//        return true;
-//    }
-//    return false;
-//}
-
-//function checkRowCondition(squareOccupiedByPlayer, lastMove) {
-//    for(var i = 1; i<=document.numberOfRows; i++) {
-//        var squareInRow = document.getElementById("r" + lastMove.getAttribute("row") + "_c" + i);
-//        if(squareInRow.className != squareOccupiedByPlayer) {
-//            return false;
-//        }
-//    }
-//    return true;
-//}
-
-//function checkColumnCondition(squareOccupiedByPlayer, lastMove) {
-//    for(var i = 1; i<=document.numberOfRows; i++) {
-//        var squareInColumn = document.getElementById("r" + i + "_c" + lastMove.getAttribute("column"));
-//        if(squareInColumn.className != squareOccupiedByPlayer) {
-//            return false;
-//        }
-//    }
-//    return true;
-//}
-
-//function checkDiagonalCondition(squareOccupiedByPlayer, lastMove) {
-//    var row = lastMove.getAttribute("row");
-//    var column = lastMove.getAttribute("column");
-//    var rowAndColumnSum = parseInt(row) + parseInt(column);
-//    if (rowAndColumnSum == document.numberOfRows + 1) {
-//        for(var i = 0; i<document.numberOfRows; i++) {
-//            var colNum = i + 1;
-//            var rowNum = document.numberOfRows - i;
-//            var squareInDiagonal = document.getElementById("r" + rowNum + "_c" + colNum);
-//            if(squareInDiagonal.className != squareOccupiedByPlayer) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-//    else if(row == column) {
-//        for(var i = 1; i<=document.numberOfRows; i++) {
-//            var squareInDiagonal = document.getElementById("r" + i + "_c" + i);
-//            if(squareInDiagonal.className != squareOccupiedByPlayer) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-//    return false;
-//}
-
-//function updateDraws() {
-//    historyModule.wasDraw();
-//    document.getElementById("draws").innerText = historyModule.getTimesWasDraw();
-//}
-
-//function updateWin(player) {
-//    if(player == "O"){
-//        historyModule.oWon();
-//        document.getElementById("oWins").innerText = historyModule.getTimesOWon();
-//    }
-//    else if(player == "X") {
-//        historyModule.xWon();
-//        document.getElementById("xWins").innerText = historyModule.getTimesXWon();
-//    }
-//}
