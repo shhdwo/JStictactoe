@@ -56,11 +56,13 @@ var gameModule = (function() {
                 if(square.innerHTML == "") {
                     square.innerHTML = document.turn;
                     square.className = "column occupiedBy_" + document.turn;
-                    endConditionCheckerModule.checkResult(document.turn, square);
+                    var result = endConditionCheckerModule.checkResult(document.turn, square);
                     changeTurn();
+                    return result;
                 }
                 else {
                     setMessage("This square is already occupied!");
+                    return "occupied";
                 }
             }
         },
